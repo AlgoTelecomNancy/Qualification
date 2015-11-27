@@ -1,0 +1,22 @@
+<h1 class="cover-heading">Match !</h1>
+<div class="lead">
+    <div class="col-sm-12" ng-repeat="play in plays track by $index">
+      <div class="col-sm-6">
+        <div class="thumbnail">
+          <div class="caption" ng-show="play.isPlayed != true">
+            <p>{{ play.team1.name }} contre {{ play.team2.name }}</p>
+            <p>
+              <a ng-click="setWinner(play, play.team1)" class="btn btn-primary" role="button">{{ play.team1.name }} a gagné</a>
+              <a ng-click="setWinner(play, play.team2)" class="btn btn-primary" role="button">{{ play.team2.name }} a gagné</a>
+            </p>
+          </div>
+          <div class="caption" ng-show="play.isPlayed == true">
+            <h3>{{ play.winner.name }} a gagné</h3>
+            <p>
+              <a ng-click="cancel(play, play.team1)" class="btn btn-default" role="button">Annuler</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

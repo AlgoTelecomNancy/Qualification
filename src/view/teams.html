@@ -1,0 +1,21 @@
+<h1 class="cover-heading">Liste des équipes</h1>
+<table class="lead table">
+    <tr><th>Nom de l'équipe</th><th>Points</th><th>Victoire</th><th>Défaites</th><th></th></tr>
+    <tr class="" ng-repeat="team in teams|orderBy:getPoints:true track by team.id">
+      <td>{{ team.name }}</td>
+      <td>{{ getPoints(team) }}</td>
+      <td>{{ team.victory }}</td>
+      <td>{{ team.defeats }}</td>
+      <td><a href="#" ng-click="removePlayer(team)">X</a></td>
+    </tr>
+</table>
+<div class="lead">
+  <form ng-submit="addPlayer(teamName);teamName='';" class="form-inline">
+    <div class="form-group">
+      <label for="team"> Nom de l'équipe </label>
+      <input id="team" required="true" class="form-control" type="text" ng-model="teamName" /><br/>
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Ajouter" />
+  </form>
+</div>
